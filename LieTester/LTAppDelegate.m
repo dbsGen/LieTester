@@ -9,13 +9,16 @@
 #import "LTAppDelegate.h"
 
 #import "LTViewController.h"
+#import "LTTesterViewController.h"
 
 @implementation LTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    UIViewController *ctrl = [[LTViewController alloc] initWithNibName:@"LTViewController" bundle:nil];
+//    UIViewController *ctrl = [[LTViewController alloc] initWithNibName:@"LTViewController" bundle:nil];
+    
+    UIViewController *ctrl = [[LTTesterViewController alloc] init];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:ctrl];
     nav.navigationBarHidden = YES;

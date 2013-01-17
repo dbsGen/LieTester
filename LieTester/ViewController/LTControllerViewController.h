@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LTLinker.h"
 
 @interface LTControllerViewController : UIViewController
+
+@property (nonatomic, strong) LTLinker *linker;
 
 @end

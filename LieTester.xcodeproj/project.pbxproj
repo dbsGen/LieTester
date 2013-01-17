@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F50C89016A7F6BB008BBAE5 /* LTElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50C88B16A7F6BB008BBAE5 /* LTElement.m */; };
+		5F50C89116A7F6BB008BBAE5 /* LTLightElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50C88D16A7F6BB008BBAE5 /* LTLightElement.m */; };
+		5F50C89216A7F6BB008BBAE5 /* LTSketchpadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50C88F16A7F6BB008BBAE5 /* LTSketchpadView.m */; };
+		5F50C89616A7F70D008BBAE5 /* LTTouchedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50C89516A7F70D008BBAE5 /* LTTouchedView.m */; };
+		5F50C89916A7F750008BBAE5 /* LTTouchElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50C89816A7F750008BBAE5 /* LTTouchElement.m */; };
 		5F91F7F416A64D5100D3C7B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F91F7F316A64D5100D3C7B5 /* UIKit.framework */; };
 		5F91F7F616A64D5100D3C7B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F91F7F516A64D5100D3C7B5 /* Foundation.framework */; };
 		5F91F7F816A64D5100D3C7B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F91F7F716A64D5100D3C7B5 /* CoreGraphics.framework */; };
@@ -27,6 +32,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F50C88A16A7F6BB008BBAE5 /* LTElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTElement.h; sourceTree = "<group>"; };
+		5F50C88B16A7F6BB008BBAE5 /* LTElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTElement.m; sourceTree = "<group>"; };
+		5F50C88C16A7F6BB008BBAE5 /* LTLightElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLightElement.h; sourceTree = "<group>"; };
+		5F50C88D16A7F6BB008BBAE5 /* LTLightElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLightElement.m; sourceTree = "<group>"; };
+		5F50C88E16A7F6BB008BBAE5 /* LTSketchpadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSketchpadView.h; sourceTree = "<group>"; };
+		5F50C88F16A7F6BB008BBAE5 /* LTSketchpadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSketchpadView.m; sourceTree = "<group>"; };
+		5F50C89416A7F70D008BBAE5 /* LTTouchedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTouchedView.h; sourceTree = "<group>"; };
+		5F50C89516A7F70D008BBAE5 /* LTTouchedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTouchedView.m; sourceTree = "<group>"; };
+		5F50C89716A7F750008BBAE5 /* LTTouchElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTouchElement.h; sourceTree = "<group>"; };
+		5F50C89816A7F750008BBAE5 /* LTTouchElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTouchElement.m; sourceTree = "<group>"; };
 		5F91F7EF16A64D5100D3C7B5 /* LieTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LieTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F91F7F316A64D5100D3C7B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5F91F7F516A64D5100D3C7B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -70,6 +85,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F50C86C16A7E165008BBAE5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F50C89316A7F6DC008BBAE5 /* Touched */,
+				5F50C88916A7F6BB008BBAE5 /* Sketchpad */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F50C88916A7F6BB008BBAE5 /* Sketchpad */ = {
+			isa = PBXGroup;
+			children = (
+				5F50C88A16A7F6BB008BBAE5 /* LTElement.h */,
+				5F50C88B16A7F6BB008BBAE5 /* LTElement.m */,
+				5F50C88C16A7F6BB008BBAE5 /* LTLightElement.h */,
+				5F50C88D16A7F6BB008BBAE5 /* LTLightElement.m */,
+				5F50C88E16A7F6BB008BBAE5 /* LTSketchpadView.h */,
+				5F50C88F16A7F6BB008BBAE5 /* LTSketchpadView.m */,
+			);
+			path = Sketchpad;
+			sourceTree = "<group>";
+		};
+		5F50C89316A7F6DC008BBAE5 /* Touched */ = {
+			isa = PBXGroup;
+			children = (
+				5F50C89416A7F70D008BBAE5 /* LTTouchedView.h */,
+				5F50C89516A7F70D008BBAE5 /* LTTouchedView.m */,
+				5F50C89716A7F750008BBAE5 /* LTTouchElement.h */,
+				5F50C89816A7F750008BBAE5 /* LTTouchElement.m */,
+			);
+			path = Touched;
+			sourceTree = "<group>";
+		};
 		5F91F7E416A64D5100D3C7B5 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +151,7 @@
 			children = (
 				5F91F81816A6573900D3C7B5 /* Tools */,
 				5F91F81916A6573900D3C7B5 /* ViewController */,
+				5F50C86C16A7E165008BBAE5 /* View */,
 				5F91F80216A64D5100D3C7B5 /* LTAppDelegate.h */,
 				5F91F80316A64D5100D3C7B5 /* LTAppDelegate.m */,
 				5F91F80E16A64D5100D3C7B5 /* LTViewController.xib */,
@@ -225,6 +274,11 @@
 				5F91F82216A6813100D3C7B5 /* LTData.m in Sources */,
 				5F91F82816A68C4900D3C7B5 /* LTTesterViewController.m in Sources */,
 				5F91F82E16A6909000D3C7B5 /* LTControllerViewController.m in Sources */,
+				5F50C89016A7F6BB008BBAE5 /* LTElement.m in Sources */,
+				5F50C89116A7F6BB008BBAE5 /* LTLightElement.m in Sources */,
+				5F50C89216A7F6BB008BBAE5 /* LTSketchpadView.m in Sources */,
+				5F50C89616A7F70D008BBAE5 /* LTTouchedView.m in Sources */,
+				5F50C89916A7F750008BBAE5 /* LTTouchElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +394,7 @@
 				5F91F81516A64D5100D3C7B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
