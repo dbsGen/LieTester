@@ -10,6 +10,7 @@
 #import "LTLinker.h"
 #import "LTControllerViewController.h"
 #import "LTTesterViewController.h"
+#import "cocos2d.h"
 
 @interface LTViewController ()
 <LTLinkerDelegate>
@@ -58,8 +59,11 @@
 
 - (IBAction)testerClicked:(id)sender
 {
-    _type = LTTester;
-    [_linker startAsTester];
+    LTTesterViewController *ctrl = (id)[LTTesterViewController sharedDirector];
+    [self.navigationController pushViewController:ctrl
+                                         animated:YES];
+//    _type = LTTester;
+//    [_linker startAsTester];
 }
 
 #pragma mark - linker delegate
@@ -79,7 +83,7 @@
             
         case LTTester:
         {
-            LTTesterViewController *ctrl = [[LTTesterViewController alloc] init];
+            LTTesterViewController *ctrl = (id)[LTTesterViewController sharedDirector];
             [self.navigationController pushViewController:ctrl
                                                  animated:YES];
         }

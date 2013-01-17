@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "cocos2d.h"
 #import "LTLinker.h"
 
-@interface LTTesterViewController : UIViewController
+@interface LTTesterViewController : CCDirectorDisplayLink
 
 @property (nonatomic, strong) LTLinker *linker;
 

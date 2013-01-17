@@ -7,67 +7,95 @@
 //
 
 #import "LTTesterViewController.h"
-#import "LTTouchedView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "LTSketchpad.h"
 
 @interface LTTesterViewController ()
+<CCDirectorDelegate>
 
 @end
 
 @implementation LTTesterViewController {
-    NSMutableArray  *_lights;
-    LTTouchedView   *_touchView;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        _lights = [[NSMutableArray alloc] init];
+        self.displayStats = YES;
+        self.animationInterval = 1.0f/60.0f;
+        self.delegate = self;
+        self.wantsFullScreenLayout = YES;
+        
     }
     return self;
 }
 
-- (void)viewDidLoad
+- (void)loadView
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    _touchView = [[LTTouchedView alloc] initWithFrame:self.view.bounds];
-    _touchView.backgroundColor = [UIColor greenColor];
-    [_touchView startActionWithTimeInterval:0.02];
+    self.view = [CCGLView viewWithFrame:[[UIScreen mainScreen] bounds]
+                            pixelFormat:kEAGLColorFormatRGB565
+                            depthFormat:0 /* GL_DEPTH_COMPONENT24_OES */
+                     preserveBackbuffer:NO
+                             sharegroup:nil
+                          multiSampling:NO
+                        numberOfSamples:0];
     
-    [self.view addSubview:_touchView];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch *touch = [touches anyObject];
-    CGPoint p = [touch locationInView:self.view];
+    LTSketchpad *sketchpad = [LTSketchpad node];
+    [self runWithScene:(id)sketchpad];
     
-    _touchView.touchPoint = p;
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+- (UIView *)view
 {
-    [_touchView stopTouch];
+    UIView *view = [super view];
+    if (!view) {
+        [self loadView];
+    }
+    return view_;
 }
 
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [_touchView stopTouch];
-}
+//- (void)viewDidLoad
+//{
+//    [super viewDidLoad];
+//	// Do any additional setup after loading the view.
+//    _touchView = [[LTTouchedView alloc] initWithFrame:self.view.bounds];
+//    _touchView.backgroundColor = [UIColor greenColor];
+//    [_touchView startActionWithTimeInterval:0.02];
+//    
+//    [self.view addSubview:_touchView];
+//}
+//
+//- (void)didReceiveMemoryWarning
+//{
+//    [super didReceiveMemoryWarning];
+//}
+//
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    NSLog(@"%@", @"ad");
+//}
+//
+//- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    [_touchView stopTouch];
+//}
+//
+//- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    [_touchView stopTouch];
+//}
+//
+//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    UITouch *touch = [touches anyObject];
+//    CGPoint p = [touch locationInView:self.view];
+//    _touchView.touchPoint = p;
+//}
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
-    UITouch *touch = [touches anyObject];
-    CGPoint p = [touch locationInView:self.view];
-    _touchView.touchPoint = p;
+    return NO;
 }
 
 @end

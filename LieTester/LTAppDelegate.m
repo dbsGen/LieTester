@@ -16,9 +16,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    UIViewController *ctrl = [[LTViewController alloc] initWithNibName:@"LTViewController" bundle:nil];
+    UIViewController *ctrl = [[LTViewController alloc] initWithNibName:@"LTViewController" bundle:nil];
     
-    UIViewController *ctrl = [[LTTesterViewController alloc] init];
+//    UIViewController *ctrl = [[LTTesterViewController alloc] init];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:ctrl];
     nav.navigationBarHidden = YES;
@@ -28,31 +28,52 @@
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
+// getting a call, pause the game
+-(void) applicationWillResignActive:(UIApplication *)application
 {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+	if( [(UINavigationController*)self.window.rootViewController visibleViewController] ==
+       [LTTesterViewController sharedDirector] )
+		[[LTTesterViewController sharedDirector] pause];
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
+// call got rejected
+-(void) applicationDidBecomeActive:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+	if( [(UINavigationController*)self.window.rootViewController visibleViewController] ==
+       [LTTesterViewController sharedDirector])
+		[[LTTesterViewController sharedDirector] resume];
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
+-(void) applicationDidEnterBackground:(UIApplication*)application
 {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+	if( [(UINavigationController*)self.window.rootViewController visibleViewController] ==
+       [LTTesterViewController sharedDirector] )
+		[[LTTesterViewController sharedDirector] stopAnimation];
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
+-(void) applicationWillEnterForeground:(UIApplication*)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+	if( [(UINavigationController*)self.window.rootViewController visibleViewController] ==
+       [LTTesterViewController sharedDirector] )
+		[[LTTesterViewController sharedDirector] startAnimation];
 }
 
+// application will be killed
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+	CC_DIRECTOR_END();
+}
+
+// purge memory
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+	[[LTTesterViewController sharedDirector] purgeCachedData];
+}
+
+// next delta time will be zero
+-(void) applicationSignificantTimeChange:(UIApplication *)application
+{
+	[[LTTesterViewController sharedDirector] setNextDeltaTimeZero:YES];
 }
 
 @end
