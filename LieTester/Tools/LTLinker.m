@@ -53,7 +53,7 @@
                      toPeers:@[_linkingPeerID]
                 withDataMode:GKSendDataReliable
                        error:&error];
-    if (!error) {
+    if (error) {
         NSLog(@"False to send %@", error);
         return NO;
     }
