@@ -8,8 +8,10 @@
 
 #import "LTTesterViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import <AVFoundation/AVFoundation.h>
 #import "LTSketchpad.h"
 #import "LTData.h"
+#import "SimpleAudioEngine.h"
 
 @interface LTTesterViewController ()
 <CCDirectorDelegate, LTLinkerDelegate>
@@ -18,6 +20,10 @@
 
 @implementation LTTesterViewController {
     LTSketchpad     *_sketchpad;
+    LTDataType      _state;
+    BOOL    _touching;
+    AVAudioPlayer   *_errorPlayer,
+                    *_tensionPlayer;
 }
 
 - (id)init
@@ -42,9 +48,12 @@
             [this.navigationController popViewControllerAnimated:YES];
         };
         _sketchpad.touchBeginBlock = ^(id sender) {
+            this->_touching = YES;
             this.linker.touching = YES;
         };
         _sketchpad.touchEndBlock = ^(id sender) {
+            [this backgroundResume];
+            this->_touching = NO;
             this.linker.touching = NO;
         };
     }
@@ -123,6 +132,27 @@
 {
     CCTintTo *action = [CCTintTo actionWithDuration:0.4 red:50 green:255 blue:50];
     [_sketchpad.backgroundLayer runAction:action];
+    [[self scheduler] unscheduleSelector:@selector(playSound)
+                               forTarget:self];
+}
+
+- (void)playSound
+{
+    switch (_state) {
+        case LTDataTypeLie:
+        {
+            [[SimpleAudioEngine sharedEngine] playEffect:@"error.mp3"];
+        }
+            break;
+        case LTDataTypeTension:
+        {
+            [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)startTimer
@@ -131,11 +161,21 @@
     [self performSelector:@selector(backgroundResume)
                withObject:nil
                afterDelay:10];
+    [self playSound];
+    [[self scheduler] unscheduleSelector:@selector(playSound)
+                               forTarget:self];
+    [[self scheduler] scheduleSelector:@selector(playSound)
+                             forTarget:self
+                              interval:3
+                                paused:NO
+                                repeat:-1
+                                 delay:0];
 }
 
 - (void)stopTimer
 {
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    _state = LTDataTypeUnkown;
 }
 
 - (void)linker:(LTLinker *)linker receiveMessage:(NSData *)message from:(NSString *)name
@@ -144,7 +184,11 @@
     switch (data.type) {
         case LTDataTypeTension:
         {
-            CCTintTo *action = [CCTintTo actionWithDuration:0.4 red:0xf0 green:0xf0 blue:0x78];
+            if (!_touching) {
+                return;
+            }
+            _state = LTDataTypeTension;
+            CCTintTo *action = [CCTintTo actionWithDuration:0.4 red:0xf0 green:0xa0 blue:0x78];
             [_sketchpad.backgroundLayer runAction:action];
             //开始计时
             [self startTimer];
@@ -152,6 +196,10 @@
             break;
         case LTDataTypeLie:
         {
+            if (!_touching) {
+                return;
+            }
+            _state = LTDataTypeLie;
             CCTintTo *action = [CCTintTo actionWithDuration:0.4 red:0xff green:0x00 blue:0x00];
             [_sketchpad.backgroundLayer runAction:action];
             //开始计时

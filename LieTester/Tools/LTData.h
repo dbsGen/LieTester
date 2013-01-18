@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
+    LTDataTypeUnkown,
     LTDataTypeAsk,          //连接之前的询问
     LTDataTypeReplyAsk,     //连接询问的回复
     LTDataTypeTouchBegin,   //测谎仪端开始按下

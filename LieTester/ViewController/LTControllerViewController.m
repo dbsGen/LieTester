@@ -31,6 +31,7 @@ void sendFaild()
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.title = local(@"Controller");
     }
     return self;
 }

@@ -11,8 +11,8 @@
 		5F59559E16A8DA4A00A221DD /* LTSketchpad.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F59559A16A8DA4A00A221DD /* LTSketchpad.m */; };
 		5F59559F16A8DA4A00A221DD /* LTTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F59559C16A8DA4A00A221DD /* LTTouch.m */; };
 		5F5955B616A8F17000A221DD /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5F5955B516A8F17000A221DD /* LICENSE.txt */; };
-		5F5955C416A91CF500A221DD /* CMUnistrokeRecognizer.c in Sources */ = {isa = PBXBuildFile; fileRef = 5F5955BF16A91CF500A221DD /* CMUnistrokeRecognizer.c */; };
-		5F5955C516A91CF500A221DD /* CMUnistrokeRecognizerTypes.c in Sources */ = {isa = PBXBuildFile; fileRef = 5F5955C216A91CF500A221DD /* CMUnistrokeRecognizerTypes.c */; };
+		5F5955C416A91CF500A221DD /* CMUnistrokeRecognizer.c in Sources */ = {isa = PBXBuildFile; fileRef = 5F5955BF16A91CF500A221DD /* CMUnistrokeRecognizer.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5F5955C516A91CF500A221DD /* CMUnistrokeRecognizerTypes.c in Sources */ = {isa = PBXBuildFile; fileRef = 5F5955C216A91CF500A221DD /* CMUnistrokeRecognizerTypes.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5F5955C716A920A900A221DD /* Z.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F5955C616A920A900A221DD /* Z.plist */; };
 		5F91F7F416A64D5100D3C7B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F91F7F316A64D5100D3C7B5 /* UIKit.framework */; };
 		5F91F7F616A64D5100D3C7B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F91F7F516A64D5100D3C7B5 /* Foundation.framework */; };
@@ -134,6 +134,15 @@
 		FE6C622816A8223500A86E92 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6C622716A8223500A86E92 /* QuartzCore.framework */; };
 		FE6C622A16A8225900A86E92 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6C622916A8225900A86E92 /* OpenGLES.framework */; };
 		FE6C622C16A8227F00A86E92 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6C622B16A8227F00A86E92 /* libz.1.2.5.dylib */; };
+		FECE7CA116A98DE90008EAA4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FECE7CA016A98DE90008EAA4 /* AVFoundation.framework */; };
+		FECE7CD816A997450008EAA4 /* error.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FECE7CD716A997450008EAA4 /* error.mp3 */; };
+		FECE7CDA16A9A4B00008EAA4 /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FECE7CD916A9A4B00008EAA4 /* click.mp3 */; };
+		FECE7CE516A9A5C30008EAA4 /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FECE7CDD16A9A5C30008EAA4 /* CDAudioManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FECE7CE616A9A5C30008EAA4 /* CDOpenALSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = FECE7CE016A9A5C30008EAA4 /* CDOpenALSupport.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FECE7CE716A9A5C30008EAA4 /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = FECE7CE216A9A5C30008EAA4 /* CocosDenshion.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FECE7CE816A9A5C30008EAA4 /* SimpleAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = FECE7CE416A9A5C30008EAA4 /* SimpleAudioEngine.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FECE7CEA16A9A7A90008EAA4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FECE7CE916A9A7A90008EAA4 /* OpenAL.framework */; };
+		FECE7CEC16A9A7D00008EAA4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FECE7CEB16A9A7D00008EAA4 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -400,6 +409,20 @@
 		FE6C622716A8223500A86E92 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FE6C622916A8225900A86E92 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		FE6C622B16A8227F00A86E92 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		FECE7CA016A98DE90008EAA4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		FECE7CD716A997450008EAA4 /* error.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error.mp3; sourceTree = "<group>"; };
+		FECE7CD916A9A4B00008EAA4 /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
+		FECE7CDC16A9A5C30008EAA4 /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
+		FECE7CDD16A9A5C30008EAA4 /* CDAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAudioManager.m; sourceTree = "<group>"; };
+		FECE7CDE16A9A5C30008EAA4 /* CDConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDConfig.h; sourceTree = "<group>"; };
+		FECE7CDF16A9A5C30008EAA4 /* CDOpenALSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDOpenALSupport.h; sourceTree = "<group>"; };
+		FECE7CE016A9A5C30008EAA4 /* CDOpenALSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDOpenALSupport.m; sourceTree = "<group>"; };
+		FECE7CE116A9A5C30008EAA4 /* CocosDenshion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosDenshion.h; sourceTree = "<group>"; };
+		FECE7CE216A9A5C30008EAA4 /* CocosDenshion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosDenshion.m; sourceTree = "<group>"; };
+		FECE7CE316A9A5C30008EAA4 /* SimpleAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAudioEngine.h; sourceTree = "<group>"; };
+		FECE7CE416A9A5C30008EAA4 /* SimpleAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAudioEngine.m; sourceTree = "<group>"; };
+		FECE7CE916A9A7A90008EAA4 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		FECE7CEB16A9A7D00008EAA4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -407,6 +430,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FECE7CEC16A9A7D00008EAA4 /* AudioToolbox.framework in Frameworks */,
+				FECE7CEA16A9A7A90008EAA4 /* OpenAL.framework in Frameworks */,
+				FECE7CA116A98DE90008EAA4 /* AVFoundation.framework in Frameworks */,
 				FE6C622C16A8227F00A86E92 /* libz.1.2.5.dylib in Frameworks */,
 				FE6C622A16A8225900A86E92 /* OpenGLES.framework in Frameworks */,
 				FE6C622816A8223500A86E92 /* QuartzCore.framework in Frameworks */,
@@ -460,6 +486,9 @@
 		5F91F7F216A64D5100D3C7B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FECE7CEB16A9A7D00008EAA4 /* AudioToolbox.framework */,
+				FECE7CE916A9A7A90008EAA4 /* OpenAL.framework */,
+				FECE7CA016A98DE90008EAA4 /* AVFoundation.framework */,
 				FE6C622B16A8227F00A86E92 /* libz.1.2.5.dylib */,
 				FE6C622916A8225900A86E92 /* OpenGLES.framework */,
 				FE6C622716A8223500A86E92 /* QuartzCore.framework */,
@@ -482,6 +511,8 @@
 				5F91F80216A64D5100D3C7B5 /* LTAppDelegate.h */,
 				5F91F80316A64D5100D3C7B5 /* LTAppDelegate.m */,
 				5F91F80E16A64D5100D3C7B5 /* LTViewController.xib */,
+				FECE7CD916A9A4B00008EAA4 /* click.mp3 */,
+				FECE7CD716A997450008EAA4 /* error.mp3 */,
 				5F91F7FA16A64D5100D3C7B5 /* Supporting Files */,
 			);
 			path = LieTester;
@@ -531,6 +562,7 @@
 		FE6C5F1E16A81CD500A86E92 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				FECE7CDB16A9A5C30008EAA4 /* CocosDenshion */,
 				5F5955BE16A91CF500A221DD /* CMUnistrokeRecognizer */,
 				FE6C5F1F16A81E1400A86E92 /* cocos2d */,
 			);
@@ -865,6 +897,22 @@
 			path = Sketchpad;
 			sourceTree = "<group>";
 		};
+		FECE7CDB16A9A5C30008EAA4 /* CocosDenshion */ = {
+			isa = PBXGroup;
+			children = (
+				FECE7CDC16A9A5C30008EAA4 /* CDAudioManager.h */,
+				FECE7CDD16A9A5C30008EAA4 /* CDAudioManager.m */,
+				FECE7CDE16A9A5C30008EAA4 /* CDConfig.h */,
+				FECE7CDF16A9A5C30008EAA4 /* CDOpenALSupport.h */,
+				FECE7CE016A9A5C30008EAA4 /* CDOpenALSupport.m */,
+				FECE7CE116A9A5C30008EAA4 /* CocosDenshion.h */,
+				FECE7CE216A9A5C30008EAA4 /* CocosDenshion.m */,
+				FECE7CE316A9A5C30008EAA4 /* SimpleAudioEngine.h */,
+				FECE7CE416A9A5C30008EAA4 /* SimpleAudioEngine.m */,
+			);
+			path = CocosDenshion;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -930,6 +978,8 @@
 				FE6C620116A8211B00A86E92 /* kazmath_neon.patch in Resources */,
 				5F5955B616A8F17000A221DD /* LICENSE.txt in Resources */,
 				5F5955C716A920A900A221DD /* Z.plist in Resources */,
+				FECE7CD816A997450008EAA4 /* error.mp3 in Resources */,
+				FECE7CDA16A9A4B00008EAA4 /* click.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1048,6 +1098,10 @@
 				5F59559F16A8DA4A00A221DD /* LTTouch.m in Sources */,
 				5F5955C416A91CF500A221DD /* CMUnistrokeRecognizer.c in Sources */,
 				5F5955C516A91CF500A221DD /* CMUnistrokeRecognizerTypes.c in Sources */,
+				FECE7CE516A9A5C30008EAA4 /* CDAudioManager.m in Sources */,
+				FECE7CE616A9A5C30008EAA4 /* CDOpenALSupport.m in Sources */,
+				FECE7CE716A9A5C30008EAA4 /* CocosDenshion.m in Sources */,
+				FECE7CE816A9A5C30008EAA4 /* SimpleAudioEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
