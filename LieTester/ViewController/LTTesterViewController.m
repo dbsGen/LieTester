@@ -42,6 +42,10 @@
                         numberOfSamples:0];
     
     LTSketchpad *sketchpad = [LTSketchpad node];
+    __unsafe_unretained LTTesterViewController *this = self;
+    sketchpad.backGestureBlock = ^(id sender) {
+        [this.navigationController popViewControllerAnimated:YES];
+    };
     [self runWithScene:(id)sketchpad];
     
 }

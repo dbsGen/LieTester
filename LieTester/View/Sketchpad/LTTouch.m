@@ -25,9 +25,9 @@
         s_height = kSize.height / texture.pixelsHigh;
         self.contentSize = kSize;
         self.anchorPoint = CGPointMake(0.8, 0.8);
-        self.scaleX = s_width * 0.8;
-        self.scaleY = s_height * 0.8;
-        self.opacity = 0;
+        self.scaleX = s_width * 0.5;
+        self.scaleY = s_height * 0.5;
+        self.opacity = 0.4;
     }
     return self;
 }

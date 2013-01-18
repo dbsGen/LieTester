@@ -10,4 +10,6 @@
 
 @interface LTSketchpad : CCLayer
 
+@property (nonatomic, copy) void (^backGestureBlock)(LTSketchpad *sender);
+
 @end

@@ -10,6 +10,10 @@
 		5F59559D16A8DA4A00A221DD /* LTBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F59559816A8DA4A00A221DD /* LTBackground.m */; };
 		5F59559E16A8DA4A00A221DD /* LTSketchpad.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F59559A16A8DA4A00A221DD /* LTSketchpad.m */; };
 		5F59559F16A8DA4A00A221DD /* LTTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F59559C16A8DA4A00A221DD /* LTTouch.m */; };
+		5F5955B616A8F17000A221DD /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5F5955B516A8F17000A221DD /* LICENSE.txt */; };
+		5F5955C416A91CF500A221DD /* CMUnistrokeRecognizer.c in Sources */ = {isa = PBXBuildFile; fileRef = 5F5955BF16A91CF500A221DD /* CMUnistrokeRecognizer.c */; };
+		5F5955C516A91CF500A221DD /* CMUnistrokeRecognizerTypes.c in Sources */ = {isa = PBXBuildFile; fileRef = 5F5955C216A91CF500A221DD /* CMUnistrokeRecognizerTypes.c */; };
+		5F5955C716A920A900A221DD /* Z.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F5955C616A920A900A221DD /* Z.plist */; };
 		5F91F7F416A64D5100D3C7B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F91F7F316A64D5100D3C7B5 /* UIKit.framework */; };
 		5F91F7F616A64D5100D3C7B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F91F7F516A64D5100D3C7B5 /* Foundation.framework */; };
 		5F91F7F816A64D5100D3C7B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F91F7F716A64D5100D3C7B5 /* CoreGraphics.framework */; };
@@ -139,6 +143,13 @@
 		5F59559A16A8DA4A00A221DD /* LTSketchpad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSketchpad.m; sourceTree = "<group>"; };
 		5F59559B16A8DA4A00A221DD /* LTTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTouch.h; sourceTree = "<group>"; };
 		5F59559C16A8DA4A00A221DD /* LTTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTouch.m; sourceTree = "<group>"; };
+		5F5955B516A8F17000A221DD /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		5F5955BF16A91CF500A221DD /* CMUnistrokeRecognizer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CMUnistrokeRecognizer.c; sourceTree = "<group>"; };
+		5F5955C016A91CF500A221DD /* CMUnistrokeRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMUnistrokeRecognizer.h; sourceTree = "<group>"; };
+		5F5955C116A91CF500A221DD /* CMUnistrokeRecognizerPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMUnistrokeRecognizerPrivate.h; sourceTree = "<group>"; };
+		5F5955C216A91CF500A221DD /* CMUnistrokeRecognizerTypes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CMUnistrokeRecognizerTypes.c; sourceTree = "<group>"; };
+		5F5955C316A91CF500A221DD /* CMUnistrokeRecognizerTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMUnistrokeRecognizerTypes.h; sourceTree = "<group>"; };
+		5F5955C616A920A900A221DD /* Z.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Z.plist; sourceTree = "<group>"; };
 		5F91F7EF16A64D5100D3C7B5 /* LieTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LieTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F91F7F316A64D5100D3C7B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5F91F7F516A64D5100D3C7B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -417,6 +428,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		5F5955BE16A91CF500A221DD /* CMUnistrokeRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				5F5955BF16A91CF500A221DD /* CMUnistrokeRecognizer.c */,
+				5F5955C016A91CF500A221DD /* CMUnistrokeRecognizer.h */,
+				5F5955C116A91CF500A221DD /* CMUnistrokeRecognizerPrivate.h */,
+				5F5955C216A91CF500A221DD /* CMUnistrokeRecognizerTypes.c */,
+				5F5955C316A91CF500A221DD /* CMUnistrokeRecognizerTypes.h */,
+			);
+			path = CMUnistrokeRecognizer;
+			sourceTree = "<group>";
+		};
 		5F91F7E416A64D5100D3C7B5 = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +490,8 @@
 		5F91F7FA16A64D5100D3C7B5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5F5955C616A920A900A221DD /* Z.plist */,
+				5F5955B516A8F17000A221DD /* LICENSE.txt */,
 				5F91F7FB16A64D5100D3C7B5 /* LieTester-Info.plist */,
 				5F91F7FC16A64D5100D3C7B5 /* InfoPlist.strings */,
 				5F91F7FF16A64D5100D3C7B5 /* main.m */,
@@ -506,6 +531,7 @@
 		FE6C5F1E16A81CD500A86E92 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				5F5955BE16A91CF500A221DD /* CMUnistrokeRecognizer */,
 				FE6C5F1F16A81E1400A86E92 /* cocos2d */,
 			);
 			path = ThirdParty;
@@ -902,6 +928,8 @@
 				FE6C61F316A8211B00A86E92 /* ChangeLog in Resources */,
 				FE6C61F416A8211B00A86E92 /* CMakeLists.txt in Resources */,
 				FE6C620116A8211B00A86E92 /* kazmath_neon.patch in Resources */,
+				5F5955B616A8F17000A221DD /* LICENSE.txt in Resources */,
+				5F5955C716A920A900A221DD /* Z.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1018,6 +1046,8 @@
 				5F59559D16A8DA4A00A221DD /* LTBackground.m in Sources */,
 				5F59559E16A8DA4A00A221DD /* LTSketchpad.m in Sources */,
 				5F59559F16A8DA4A00A221DD /* LTTouch.m in Sources */,
+				5F5955C416A91CF500A221DD /* CMUnistrokeRecognizer.c in Sources */,
+				5F5955C516A91CF500A221DD /* CMUnistrokeRecognizerTypes.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
