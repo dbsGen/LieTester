@@ -11,6 +11,7 @@
 @interface LTTouch : CCSprite
 
 @property (nonatomic, copy) void (^missBlock)(LTTouch *sender);
+
 - (void)show;
 - (void)miss;
 

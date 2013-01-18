@@ -9,7 +9,7 @@
 #import "LTTouch.h"
 #import "cocos2d.h"
 
-#define kSize CGSizeMake(95, 95)
+#define kSize CGSizeMake(190, 190)
 
 @implementation LTTouch {
     float   s_width, s_height;
@@ -24,9 +24,10 @@
         s_width = kSize.width / texture.pixelsWide;
         s_height = kSize.height / texture.pixelsHigh;
         self.contentSize = kSize;
-        self.anchorPoint = CGPointMake(1.5, 1.5);
-        self.scaleX = s_width / 2;
-        self.scaleY = s_height / 2;
+        self.anchorPoint = CGPointMake(0.8, 0.8);
+        self.scaleX = s_width * 0.8;
+        self.scaleY = s_height * 0.8;
+        self.opacity = 0;
     }
     return self;
 }
@@ -35,7 +36,6 @@
 {
     self = [super initWithTexture:texture rect:rect rotated:rotated];
     if (self) {
-        self.anchorPoint = CGPointMake(0.5, 0.5);
     }
     return self;
 }
@@ -69,8 +69,9 @@
             [self unschedule:@selector(update)];
             return;
         }
-        self.scaleX = self.scaleX + (s_width - self.scaleX) * 0.1;
-        self.scaleY = self.scaleY + (s_height - self.scaleY) * 0.1;
+        self.scaleX = self.scaleX + (s_width - self.scaleX) * 0.4;
+        self.scaleY = self.scaleY + (s_height - self.scaleY) * 0.4;
+        self.opacity = self.opacity + (255.0f - self.opacity) * 0.4;
     }else {
         if (self.scaleX < 0.01 && self.scaleX > -0.01) {
             [self unschedule:@selector(update)];
@@ -79,8 +80,10 @@
                        afterDelay:0];
             return;
         }
-        self.scaleX = self.scaleX + (0 - self.scaleX) * 0.1;
-        self.scaleY = self.scaleY + (0 - self.scaleY) * 0.1;
+        self.scaleX = self.scaleX + (0 - self.scaleX) * 0.01;
+        self.scaleY = self.scaleY + (0 - self.scaleY) * 0.01;
+        self.opacity = self.opacity + (0.0f - self.opacity) * 0.01;
+        
     }
 }
 

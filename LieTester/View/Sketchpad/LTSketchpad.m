@@ -50,12 +50,18 @@
 //        return;
 //    }
     //旧的消失
+    GLubyte opacity = _lastTouch.opacity;
+    float sx = _lastTouch.scaleX;
+    float sy = _lastTouch.scaleY;
     [_lastTouch miss];
     
     //新的出现
     _oldPoint = p;
     _lastTouch = [LTTouch node];
     _lastTouch.position = p;
+    _lastTouch.opacity = opacity;
+    _lastTouch.scaleX = sx;
+    _lastTouch.scaleY = sy;
     __unsafe_unretained LTSketchpad *this = self;
     _lastTouch.missBlock = ^(LTTouch *sender) {
         [this removeChild:sender cleanup:YES];

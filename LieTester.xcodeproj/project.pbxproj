@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F59559D16A8DA4A00A221DD /* LTBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F59559816A8DA4A00A221DD /* LTBackground.m */; };
+		5F59559E16A8DA4A00A221DD /* LTSketchpad.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F59559A16A8DA4A00A221DD /* LTSketchpad.m */; };
+		5F59559F16A8DA4A00A221DD /* LTTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F59559C16A8DA4A00A221DD /* LTTouch.m */; };
 		5F91F7F416A64D5100D3C7B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F91F7F316A64D5100D3C7B5 /* UIKit.framework */; };
 		5F91F7F616A64D5100D3C7B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F91F7F516A64D5100D3C7B5 /* Foundation.framework */; };
 		5F91F7F816A64D5100D3C7B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F91F7F716A64D5100D3C7B5 /* CoreGraphics.framework */; };
@@ -127,12 +130,15 @@
 		FE6C622816A8223500A86E92 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6C622716A8223500A86E92 /* QuartzCore.framework */; };
 		FE6C622A16A8225900A86E92 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6C622916A8225900A86E92 /* OpenGLES.framework */; };
 		FE6C622C16A8227F00A86E92 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6C622B16A8227F00A86E92 /* libz.1.2.5.dylib */; };
-		FE6C623016A825BC00A86E92 /* LTSketchpad.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6C622F16A825BC00A86E92 /* LTSketchpad.m */; };
-		FE7709B716A85DD9001BB254 /* LTBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7709B616A85DD9001BB254 /* LTBackground.m */; };
-		FE7709BA16A85DF2001BB254 /* LTTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7709B916A85DF2001BB254 /* LTTouch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F59559716A8DA4A00A221DD /* LTBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTBackground.h; sourceTree = "<group>"; };
+		5F59559816A8DA4A00A221DD /* LTBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTBackground.m; sourceTree = "<group>"; };
+		5F59559916A8DA4A00A221DD /* LTSketchpad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSketchpad.h; sourceTree = "<group>"; };
+		5F59559A16A8DA4A00A221DD /* LTSketchpad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSketchpad.m; sourceTree = "<group>"; };
+		5F59559B16A8DA4A00A221DD /* LTTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTouch.h; sourceTree = "<group>"; };
+		5F59559C16A8DA4A00A221DD /* LTTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTouch.m; sourceTree = "<group>"; };
 		5F91F7EF16A64D5100D3C7B5 /* LieTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LieTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F91F7F316A64D5100D3C7B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5F91F7F516A64D5100D3C7B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -383,12 +389,6 @@
 		FE6C622716A8223500A86E92 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FE6C622916A8225900A86E92 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		FE6C622B16A8227F00A86E92 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
-		FE6C622E16A825BC00A86E92 /* LTSketchpad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSketchpad.h; sourceTree = "<group>"; };
-		FE6C622F16A825BC00A86E92 /* LTSketchpad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSketchpad.m; sourceTree = "<group>"; };
-		FE7709B516A85DD8001BB254 /* LTBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTBackground.h; sourceTree = "<group>"; };
-		FE7709B616A85DD9001BB254 /* LTBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTBackground.m; sourceTree = "<group>"; };
-		FE7709B816A85DF1001BB254 /* LTTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTouch.h; sourceTree = "<group>"; };
-		FE7709B916A85DF2001BB254 /* LTTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTouch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -829,12 +829,12 @@
 		FE6C622D16A8258B00A86E92 /* Sketchpad */ = {
 			isa = PBXGroup;
 			children = (
-				FE6C622E16A825BC00A86E92 /* LTSketchpad.h */,
-				FE6C622F16A825BC00A86E92 /* LTSketchpad.m */,
-				FE7709B516A85DD8001BB254 /* LTBackground.h */,
-				FE7709B616A85DD9001BB254 /* LTBackground.m */,
-				FE7709B816A85DF1001BB254 /* LTTouch.h */,
-				FE7709B916A85DF2001BB254 /* LTTouch.m */,
+				5F59559716A8DA4A00A221DD /* LTBackground.h */,
+				5F59559816A8DA4A00A221DD /* LTBackground.m */,
+				5F59559916A8DA4A00A221DD /* LTSketchpad.h */,
+				5F59559A16A8DA4A00A221DD /* LTSketchpad.m */,
+				5F59559B16A8DA4A00A221DD /* LTTouch.h */,
+				5F59559C16A8DA4A00A221DD /* LTTouch.m */,
 			);
 			path = Sketchpad;
 			sourceTree = "<group>";
@@ -1015,9 +1015,9 @@
 				FE6C61FE16A8211B00A86E92 /* vec2.c in Sources */,
 				FE6C61FF16A8211B00A86E92 /* vec3.c in Sources */,
 				FE6C620016A8211B00A86E92 /* vec4.c in Sources */,
-				FE6C623016A825BC00A86E92 /* LTSketchpad.m in Sources */,
-				FE7709B716A85DD9001BB254 /* LTBackground.m in Sources */,
-				FE7709BA16A85DF2001BB254 /* LTTouch.m in Sources */,
+				5F59559D16A8DA4A00A221DD /* LTBackground.m in Sources */,
+				5F59559E16A8DA4A00A221DD /* LTSketchpad.m in Sources */,
+				5F59559F16A8DA4A00A221DD /* LTTouch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

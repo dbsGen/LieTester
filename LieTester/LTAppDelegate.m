@@ -25,7 +25,19 @@
     
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
+    
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, NULL, 10, 10);
+    CGPathAddCurveToPoint(path, NULL, 200, 200, 300, 300, 250, 250);
+    CGPathApply(path, NULL, handle);
+    
     return YES;
+}
+
+void handle(void *info,
+            const CGPathElement *element)
+{
+    NSLog(@"%@", NSStringFromCGPoint(element->points[0]));
 }
 
 // getting a call, pause the game
