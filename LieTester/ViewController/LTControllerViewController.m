@@ -39,6 +39,9 @@ void sendFaild()
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    if (self.linker.connect) {
+        self.stateLabel.text = local(@"Connect");
+    }
 }
 
 - (void)didReceiveMemoryWarning
