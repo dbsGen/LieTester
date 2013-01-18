@@ -22,11 +22,16 @@ typedef enum {
 
 // unused now.
 @property (nonatomic, assign) NSInteger linkType;
+@property (nonatomic, readonly) BOOL    connect;
 
 - (void)disconnect;
 
 - (void)startAsTester;
 - (void)startAsController;
+
+@property (nonatomic, assign)   BOOL    touching;
+
+- (BOOL)send:(NSData *)data;
 
 @end
 
@@ -37,7 +42,7 @@ typedef enum {
 
 - (void)linker:(LTLinker *)linker connectFaild:(NSError *)error;
 
-- (void)linker:(LTLinker *)linker receiveMessage:(NSString *)message from:(NSString *)name;
+- (void)linker:(LTLinker *)linker receiveMessage:(NSData *)message from:(NSString *)name;
 
 - (void)linkerDisconnect:(LTLinker *)linker;
 

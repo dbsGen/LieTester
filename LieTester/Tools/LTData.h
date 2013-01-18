@@ -9,8 +9,13 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    LTDataTypeAsk,
-    LTDataTypeReplyAsk
+    LTDataTypeAsk,          //连接之前的询问
+    LTDataTypeReplyAsk,     //连接询问的回复
+    LTDataTypeTouchBegin,   //测谎仪端开始按下
+    LTDataTypeTouchEnd,     //测谎仪结束
+    LTDataTypeLie,          //撒谎
+    LTDataTypeTension,
+    LTDataTypeResume,       //恢复
 } LTDataType;
 
 @interface LTData : NSObject

@@ -43,6 +43,40 @@
     [_peerPickerController show];
 }
 
+- (BOOL)send:(NSData *)data
+{
+    if (!_linkingPeerID) {
+        return NO;
+    }
+    NSError *error = nil;
+    [[self session] sendData:data
+                     toPeers:@[_linkingPeerID]
+                withDataMode:GKSendDataReliable
+                       error:&error];
+    if (!error) {
+        NSLog(@"False to send %@", error);
+        return NO;
+    }
+    return YES;
+}
+
+- (void)setTouching:(BOOL)touching
+{
+    if (_touching == touching) {
+        return;
+    }
+    _touching = touching;
+    if (touching) {
+        dispatch_async(_queue, ^{
+            [self send:[LTData dataWithType:LTDataTypeTouchBegin].data];
+        });
+    }else {
+        dispatch_async(_queue, ^{
+            [self send:[LTData dataWithType:LTDataTypeTouchEnd].data];
+        });
+    }
+}
+
 - (void)startAsController
 {
     _type = LTController;
@@ -60,6 +94,7 @@
     _linkingPeerID = nil;
     _type = LTUnknow;
     [_session disconnectFromAllPeers];
+    _connect = NO;
 }
 
 - (void)startWaitting
@@ -106,6 +141,7 @@
 {
     switch (state) {
         case GKPeerStateDisconnected:
+            _connect = NO;
             if ([self.delegate respondsToSelector:@selector(linkerDisconnect:)]) {
                 [self.delegate linkerDisconnect:self];
             }
@@ -171,6 +207,7 @@
                     [self.delegate linker:self
                        connectSuccessWith:name];
                 }
+                _connect = YES;
             }
         }
             break;
@@ -188,6 +225,7 @@
                 [self.delegate linker:self
                    connectSuccessWith:name];
             }
+            _connect = YES;
         }
             break;
             
@@ -197,9 +235,7 @@
             name = !name ? peer:name;
             if ([self.delegate respondsToSelector:@selector(linker:receiveMessage:from:)]) {
                 [self.delegate linker:self
-                       receiveMessage:[[NSString alloc] initWithBytes:data.bytes
-                                                               length:data.length
-                                                             encoding:NSUTF8StringEncoding]
+                       receiveMessage:data
                                  from:name];
             }
         }

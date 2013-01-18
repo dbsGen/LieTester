@@ -13,4 +13,12 @@
 
 @property (nonatomic, strong) LTLinker *linker;
 
+@property (nonatomic, strong) IBOutlet  UILabel *stateLabel;
+
+- (IBAction)lieClicked:(id)sender;
+- (IBAction)tensionClicked:(id)sender;
+- (IBAction)resumeClicked:(id)sender;
+
+- (IBAction)backClicked:(id)sender;
+
 @end

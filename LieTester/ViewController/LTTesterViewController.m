@@ -9,13 +9,15 @@
 #import "LTTesterViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "LTSketchpad.h"
+#import "LTData.h"
 
 @interface LTTesterViewController ()
-<CCDirectorDelegate>
+<CCDirectorDelegate, LTLinkerDelegate>
 
 @end
 
 @implementation LTTesterViewController {
+    LTSketchpad     *_sketchpad;
 }
 
 - (id)init
@@ -31,6 +33,24 @@
     return self;
 }
 
+- (LTSketchpad *)sketchpad
+{
+    if (!_sketchpad) {
+        _sketchpad = [LTSketchpad node];
+        __unsafe_unretained LTTesterViewController *this = self;
+        _sketchpad.backGestureBlock = ^(id sender) {
+            [this.navigationController popViewControllerAnimated:YES];
+        };
+        _sketchpad.touchBeginBlock = ^(id sender) {
+            this.linker.touching = YES;
+        };
+        _sketchpad.touchEndBlock = ^(id sender) {
+            this.linker.touching = NO;
+        };
+    }
+    return _sketchpad;
+}
+
 - (void)loadView
 {
     self.view = [CCGLView viewWithFrame:[[UIScreen mainScreen] bounds]
@@ -41,12 +61,7 @@
                           multiSampling:NO
                         numberOfSamples:0];
     
-    LTSketchpad *sketchpad = [LTSketchpad node];
-    __unsafe_unretained LTTesterViewController *this = self;
-    sketchpad.backGestureBlock = ^(id sender) {
-        [this.navigationController popViewControllerAnimated:YES];
-    };
-    [self runWithScene:(id)sketchpad];
+    [self runWithScene:(id)[self sketchpad]];
     
 }
 
@@ -100,6 +115,60 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
     return NO;
+}
+
+#pragma mark - linker delegate
+
+- (void)backgroundResume
+{
+    CCTintTo *action = [CCTintTo actionWithDuration:0.4 red:50 green:255 blue:50];
+    [_sketchpad.backgroundLayer runAction:action];
+}
+
+- (void)startTimer
+{
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    [self performSelector:@selector(backgroundResume)
+               withObject:nil
+               afterDelay:10];
+}
+
+- (void)stopTimer
+{
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+}
+
+- (void)linker:(LTLinker *)linker receiveMessage:(NSData *)message from:(NSString *)name
+{
+    LTData *data = [[LTData alloc] initWithData:message];
+    switch (data.type) {
+        case LTDataTypeTension:
+        {
+            CCTintTo *action = [CCTintTo actionWithDuration:0.4 red:0xf0 green:0xf0 blue:0x78];
+            [_sketchpad.backgroundLayer runAction:action];
+            //开始计时
+            [self startTimer];
+        }
+            break;
+        case LTDataTypeLie:
+        {
+            CCTintTo *action = [CCTintTo actionWithDuration:0.4 red:0xff green:0x00 blue:0x00];
+            [_sketchpad.backgroundLayer runAction:action];
+            //开始计时
+            [self startTimer];
+        }
+            break;
+        case LTDataTypeResume:
+        {
+            [self stopTimer];
+            [self backgroundResume];
+        }
+            break;
+            
+        default:
+            break;
+    }
+
 }
 
 @end

@@ -7,9 +7,14 @@
 //
 
 #import "cocos2d.h"
+#import "LTBackground.h"
 
 @interface LTSketchpad : CCLayer
 
+@property (nonatomic, readonly) LTBackground    *backgroundLayer;
+
 @property (nonatomic, copy) void (^backGestureBlock)(LTSketchpad *sender);
+@property (nonatomic, copy) void (^touchBeginBlock)(LTSketchpad *sender);
+@property (nonatomic, copy) void (^touchEndBlock)(LTSketchpad *sender);
 
 @end

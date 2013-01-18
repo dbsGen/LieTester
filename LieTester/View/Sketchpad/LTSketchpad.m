@@ -27,6 +27,8 @@
     UITouch     *_nowTouch;
 }
 
+@synthesize backgroundLayer = _backgroundLayer;
+
 - (void)dealloc
 {
     for (LTTouch *touch in _allTouches) {
@@ -132,6 +134,10 @@
     CGPoint p = [[CCDirector sharedDirector] convertToGL:lp];
     [self setPoint:p];
     [_gesturePath moveToPoint:lp];
+    
+    if (self.touchBeginBlock) {
+        self.touchBeginBlock(self);
+    }
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -147,11 +153,17 @@
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self touchEnd];
+    if (self.touchEndBlock) {
+        self.touchEndBlock(self);
+    }
 }
 
 - (void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self touchEnd];
+    if (self.touchEndBlock) {
+        self.touchEndBlock(self);
+    }
 }
 
 #pragma mark - gesture

@@ -19,7 +19,7 @@
 
 @interface LTViewController () {
     LTLinker    *_linker;
-    LTCharacter     _type;
+    LTCharacter _type;
 }
 
 @end
@@ -30,8 +30,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _linker = [[LTLinker alloc] init];
-        _linker.delegate = self;
     }
     return self;
 }
@@ -40,6 +38,15 @@
 {
     [super viewDidLoad];
     
+}
+
+- (LTLinker *)linker
+{
+    if (!_linker) {
+        _linker = [[LTLinker alloc] init];
+        _linker.delegate = self;
+    }
+    return _linker;
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,16 +61,16 @@
 - (IBAction)controllerClicked:(id)sender
 {
     _type = LTController;
-    [_linker startAsController];
+    [[self linker] startAsController];
 }
 
 - (IBAction)testerClicked:(id)sender
 {
-    LTTesterViewController *ctrl = (id)[LTTesterViewController sharedDirector];
-    [self.navigationController pushViewController:ctrl
-                                         animated:YES];
-//    _type = LTTester;
-//    [_linker startAsTester];
+//    LTTesterViewController *ctrl = (id)[LTTesterViewController sharedDirector];
+//    [self.navigationController pushViewController:ctrl
+//                                         animated:YES];
+    _type = LTTester;
+    [[self linker] startAsTester];
 }
 
 #pragma mark - linker delegate
@@ -76,6 +83,9 @@
         case LTController:
         {
             LTControllerViewController *ctrl = [[LTControllerViewController alloc] init];
+            ctrl.linker = _linker;
+            _linker.delegate = (id)ctrl;
+            _linker = nil;
             [self.navigationController pushViewController:ctrl
                                                  animated:YES];
         }
@@ -84,6 +94,9 @@
         case LTTester:
         {
             LTTesterViewController *ctrl = (id)[LTTesterViewController sharedDirector];
+            ctrl.linker = _linker;
+            _linker.delegate = (id)ctrl;
+            _linker = nil;
             [self.navigationController pushViewController:ctrl
                                                  animated:YES];
         }
@@ -99,7 +112,7 @@
     
 }
 
-- (void)linker:(LTLinker *)linker receiveMessage:(NSString *)message from:(NSString *)name
+- (void)linker:(LTLinker *)linker receiveMessage:(NSData *)message from:(NSString *)name
 {
     
 }
